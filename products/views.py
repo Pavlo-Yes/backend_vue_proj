@@ -11,6 +11,7 @@ class ProductsListCreateView(ListCreateAPIView):
     permission_classes = [AllowAny]
     serializer_class = ProductSerializer
     queryset = ProductModel.objects.all()
+    print(queryset)
 
 
 class ProductsRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
@@ -18,6 +19,7 @@ class ProductsRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
     # authentication_classes = [JWTAuthentication]
     serializer_class = ProductSerializer
     queryset = ProductModel.objects.all()
+    print(queryset)
 
 #     # Дістаємо продукти певного юзера
 #     def get_queryset(self):

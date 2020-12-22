@@ -1,5 +1,5 @@
 from rest_framework_simplejwt.authentication import JWTAuthentication
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListCreateAPIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
 
@@ -7,11 +7,11 @@ from .serializers import UserSerializer
 from .models import UserModel
 
 
-class UserListView(ListAPIView):
+class UserListView(ListCreateAPIView):
     serializer_class = UserSerializer
     queryset = UserModel.objects.all()
-    permission_classes = [IsAdminUser, IsAuthenticated]
-    authentication_classes = [JWTAuthentication]
+    # permission_classes = [IsAdminUser, IsAuthenticated]
+    # authentication_classes = [JWTAuthentication]
 
     # Виключення себе зі списку усіх зареєстрованих юзерів
     def list(self, request, *args, **kwargs):

@@ -8,4 +8,5 @@ class UserModel(AbstractUser):
     class Meta:
         db_table = 'auth_user'
 
-    email = models.EmailField(unique=True)
+    email = models.EmailField(max_length=50, unique=True)
+    # password = models.CharField
